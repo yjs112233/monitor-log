@@ -149,15 +149,15 @@ IOC容器加载完后后，通过实现该接口的onApplicationEvent方法，�
 在该架构模式下，可以通过实现DataEngine接口，扩展更多的数据库支持。如其他DBMS规范的数据库，ORABLE、达梦、SqlServer等，组件中实现了基于JDBC的轻量级ORM框架，可以直接实现扩展。也可以支持其他非关系型数据库Redis、MangoDB等等。
 
 #### 日志查询
-1.自定义路由
+##### 1.自定义路由
 Gateaway的底层依赖于Webflux，Webflux底层依赖于Netty， WebFlux是一个类似wevMvc的路由访问控制器，除了在yml文件中配置路由。组件通过配之类MonitorRouteConfiguration实现路由对象注入。对于日志查询的访问接口，在这个配置类向Gateway网关中注入几个路由对象实现外部web访问，同时配置静态资源映射，实现静态页面的资源访问。
 ![](./uploads/16.png)
 
-2. 访问控制
+##### 2. 访问控制
 在handler包中，实现了AuthHandler，当请求访问到mxkj/login接口，会通过配置的AuthHandler类来处理请求。该类中实现了基于账号密码的访问控制，实现了基于内存的会话有效期控制等。
 
 ![](./uploads/17.png)
 
-3.条件分页查询
+##### 3.条件分页查询
 条件分页查询同理，通过在handler包中实现LogListHandler类，该类会通过DataEngin访问底层数据库，并实现封装。
 ![](./uploads/18.png)
