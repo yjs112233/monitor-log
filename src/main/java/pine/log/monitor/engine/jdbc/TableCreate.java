@@ -27,8 +27,8 @@ public class TableCreate {
      * @throws SQLException
      */
     public void createTableIfPresent() {
-        if (!isTableExist(sqlFactory.get().table_name())){
-            String sql = sqlFactory.get().create_table_sql();
+        if (!isTableExist(sqlFactory.get().tableName())){
+            String sql = sqlFactory.get().createTableSql();
             baseOptional.execute(sql, preparedStatement -> {
                 try {
                     preparedStatement.execute();
@@ -45,7 +45,7 @@ public class TableCreate {
      * @return
      */
     private boolean isTableExist(String tableName){
-        String sql = sqlFactory.get().show_table_sql();
+        String sql = sqlFactory.get().showTableSql();
         AtomicBoolean atomicBoolean = new AtomicBoolean(false);
         baseOptional.execute(sql, preparedStatement -> {
             try {

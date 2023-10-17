@@ -16,18 +16,18 @@ public class DMsqlService extends SQL{
     }
 
     @Override
-    public String table_name() {
+    public String tableName() {
         return table + "." +"MXKJ_MONITOR_LOG";
     }
 
     @Override
-    public String show_table_sql() {
-        return "SELECT CONCAT('"+table+".',TABLE_NAME) FROM ALL_TABLES WHERE OWNER = '"+table+"';";
+    public String showTableSql() {
+        return "SELECT CONCAT('"+table+".',tableName) FROM ALL_TABLES WHERE OWNER = '"+table+"';";
     }
 
     @Override
-    public String create_table_sql() {
-        return  "CREATE TABLE "+ table_name() +"\n" +
+    public String createTableSql() {
+        return  "CREATE TABLE "+ tableName() +"\n" +
                 "(\n" +
                 "\"ID\" BIGINT IDENTITY(1, 1) NOT NULL,\n" +
                 "\"USERNAME\" VARCHAR(255),\n" +
@@ -44,16 +44,16 @@ public class DMsqlService extends SQL{
     }
 
     /**
-     *                  "COMMENT ON COLUMN "+ table_name() +".COST_TIME IS '耗时';\n" +
-     *                 "COMMENT ON COLUMN "+ table_name() +".CREATE_TIME IS '创建时间';\n" +
-     *                 "COMMENT ON COLUMN "+ table_name() +".ID IS 'ID';\n" +
-     *                 "COMMENT ON COLUMN "+ table_name() +".JSON_BODY IS '返回结果';\n" +
-     *                 "COMMENT ON COLUMN "+ table_name() +".OPER_IP IS '请求IP';\n" +
-     *                 "COMMENT ON COLUMN "+ table_name() +".OPER_PARAM IS '请求参数';\n" +
-     *                 "COMMENT ON COLUMN "+ table_name() +".OPER_TYPE IS '请求类型';\n" +
-     *                 "COMMENT ON COLUMN "+ table_name() +".OPER_URL IS '请求地址';\n" +
-     *                 "COMMENT ON COLUMN "+ table_name() +".REQUEST_ID IS '请求对象的ID';\n" +
-     *                 "COMMENT ON COLUMN "+ table_name() +".RES_CODE IS '返回状态码';\n" +
-     *                 "COMMENT ON COLUMN "+ table_name() +".USERNAME IS '用户名';";
+     *                  "COMMENT ON COLUMN "+ tableName() +".COST_TIME IS '耗时';\n" +
+     *                 "COMMENT ON COLUMN "+ tableName() +".CREATE_TIME IS '创建时间';\n" +
+     *                 "COMMENT ON COLUMN "+ tableName() +".ID IS 'ID';\n" +
+     *                 "COMMENT ON COLUMN "+ tableName() +".JSON_BODY IS '返回结果';\n" +
+     *                 "COMMENT ON COLUMN "+ tableName() +".OPER_IP IS '请求IP';\n" +
+     *                 "COMMENT ON COLUMN "+ tableName() +".OPER_PARAM IS '请求参数';\n" +
+     *                 "COMMENT ON COLUMN "+ tableName() +".OPER_TYPE IS '请求类型';\n" +
+     *                 "COMMENT ON COLUMN "+ tableName() +".OPER_URL IS '请求地址';\n" +
+     *                 "COMMENT ON COLUMN "+ tableName() +".REQUEST_ID IS '请求对象的ID';\n" +
+     *                 "COMMENT ON COLUMN "+ tableName() +".RES_CODE IS '返回状态码';\n" +
+     *                 "COMMENT ON COLUMN "+ tableName() +".USERNAME IS '用户名';";
      */
 }

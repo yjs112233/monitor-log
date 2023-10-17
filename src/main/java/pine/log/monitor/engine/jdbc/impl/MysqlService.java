@@ -9,18 +9,18 @@ import org.springframework.stereotype.Service;
 public class MysqlService extends SQL{
 
     @Override
-    public String table_name() {
+    public String tableName() {
         return "mxkj_monitor_log";
     }
 
     @Override
-    public String show_table_sql() {
+    public String showTableSql() {
         return "show tables";
     }
 
     @Override
-    public String create_table_sql() {
-       return "                 CREATE TABLE `" + table_name() + "`  (" +
+    public String createTableSql() {
+       return "                 CREATE TABLE `" + tableName() + "`  (" +
                "                `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '主键'," +
                "                `username` varchar(255) NULL COMMENT '用户名'," +
                "                `request_id` varchar(255) NULL COMMENT '请求对象的ID'," +

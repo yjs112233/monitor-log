@@ -30,7 +30,7 @@ public class TableInsert {
      * @throws SQLException
      */
     public void insert(MonitorLog monitorLog){
-        String sql = sqlFactory.get().insert_sql();
+        String sql = sqlFactory.get().insertSql();
         baseOptional.execute(sql, preparedStatement -> {
             try {
                 String[] params = buildParamList(monitorLog);

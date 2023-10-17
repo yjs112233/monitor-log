@@ -27,7 +27,7 @@ public class TableSelect {
     private SQLFactory sqlFactory;
 
     public int count(MonitorLog monitorLog){
-        String baseSql = sqlFactory.get().count_sql();
+        String baseSql = sqlFactory.get().countSql();
 
         List<String> values = new ArrayList<>();
         String sql = buildWhere(monitorLog, baseSql, values);
@@ -60,7 +60,7 @@ public class TableSelect {
         if (page < 1 || size <=0){
             throw new LogGlobalException("非法参数：page:" + page + "  size:" + size);
         }
-        String sql = sqlFactory.get().select_sql();
+        String sql = sqlFactory.get().selectSql();
         List<MonitorLog> list = new ArrayList<>();
         baseOptional.execute(sql, preparedStatement -> {
             try {
@@ -83,7 +83,7 @@ public class TableSelect {
      * @return
      */
     public List<MonitorLog> search(MonitorLog monitorLog, int page, int size){
-        String baseSql = sqlFactory.get().search_base_sql();
+        String baseSql = sqlFactory.get().searchBaseSql();
         List<String> values = new ArrayList<>();
         String sql = buildWhere(monitorLog, baseSql, values);
         //创建时间倒叙
